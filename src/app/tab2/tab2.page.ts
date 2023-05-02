@@ -22,4 +22,12 @@ export class Tab2Page {
     this.list = JSON.parse(localStorage.getItem('MisFav') || '{}');
   }
 
+  deleteFavoritos(item:any){
+    item.isFavorite=false;
+    this.list=this.list.filter((i: { id: any; })=>{
+      return i.id!== item.id
+    })
+    localStorage.setItem('MisFav', JSON.stringify(this.list));
+    this.list = JSON.parse(localStorage.getItem('MisFav') || '{}');
+  }
 }
