@@ -50,15 +50,25 @@ export class Tab1Page {
 
 
   saveFavoritos(item: any){
-    this.productosFav = JSON.parse(localStorage.getItem('MisFav') || '{}');
-    this.repetido=this.productosFav.filter((i)=>{
-          return i.id === item.id
-    })
+
+    if(item.isFavorite){
+      this.productosFav.push(item);
+      localStorage.setItem('MisFav', JSON.stringify(this.productosFav));
+      this.productosFav = JSON.parse(localStorage.getItem('MisFav') || '{}');
+      console.log(this.productosFav)
+      this.repetido=this.productosFav.filter((i)=>{
+            return i.id === item.id
+      })
+    }else{
+        console.error('relax')
+    }
+
+  
 
     console.log("separacion")
     console.log("item: "+ item.isFavorite)
     console.log("repetido: "+ this.repetido.length)
-
+    //
     if(this.repetido.length===0 && item.isFavorite===true){
       this.productosFav.push(item);
       localStorage.setItem('MisFav', JSON.stringify(this.productosFav));

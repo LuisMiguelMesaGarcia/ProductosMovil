@@ -19,7 +19,10 @@ export class Tab2Page {
   constructor() {}
 
   ngOnInit(){
-    this.list = JSON.parse(localStorage.getItem('MisFav') || '{}');
+    setInterval(()=>{
+      this.list = JSON.parse(localStorage.getItem('MisFav') || '{}');
+    },500)
+    
   }
 
   deleteFavoritos(item:any){
