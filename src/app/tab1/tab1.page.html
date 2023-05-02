@@ -16,9 +16,9 @@
 <div class="content-tab-1" *ngFor="let item of list" >
   <div class="card">
     
-    <img src="{{item.images[0]}}" alt="" class="card__img">
+    <img src="{{item.images[0]}}"  alt="" class="card__img">
     <div class="card__lable">{{item.title}}</div>
-    <div class="card__lable">Precio: ${{item.price}}</div>
+    <div class="card__lable" >Precio: ${{item.price}}</div>
     <!-- <ion-icon name="heart" aria-label="Favorite"></ion-icon> -->
     <ion-icon (click)="this.statusFavorite(item)" name="{{item.isFavorite ? 'heart' : 'heart-outline'}}" aria-label="Favorite"></ion-icon>
   </div>

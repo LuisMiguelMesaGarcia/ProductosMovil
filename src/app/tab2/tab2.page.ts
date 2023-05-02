@@ -19,7 +19,7 @@ export class Tab2Page {
   constructor() {}
 
   ngOnInit(){
-    this.productos = JSON.parse(localStorage.getItem('MisFav') || '{}');
+    this.list = JSON.parse(localStorage.getItem('MisFav') || '{}');
   }
 
 }

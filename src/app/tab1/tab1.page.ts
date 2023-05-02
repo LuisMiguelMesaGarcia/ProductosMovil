@@ -27,8 +27,7 @@ export class Tab1Page {
   public function_get_PRODUCTOS(){
     this.http._getProducto_().subscribe((resp:any)=>{
       resp.products.forEach((element: { isFavorite: boolean; }) => {
-        element.isFavorite = false;
-        
+        element.isFavorite = false;      
       });
        this.list=resp.products;
       //  console.log(this.list);
@@ -36,13 +35,24 @@ export class Tab1Page {
   }
 
   statusFavorite(item: any){
-    this.list[item.id -1].isFavorite = !this.list[item.id -1].isFavorite;
-    this.saveFavoritos(item);
+    item.isFavorite = !item.isFavorite;
+    if(item.isFavorite){
+      this.saveFavoritos(item);
+    }else{
+      this.deleteFavorite(item);
+    }
+    
   
   }
 
   saveFavoritos(item: any){
     this.productosFav.push(item);
+    localStorage.setItem('MisFav', JSON.stringify(this.productosFav));
+  }
+  deleteFavorite(item:any){
+    this.productosFav=this.productosFav.filter((i)=>{
+      return i!== item
+    })
     localStorage.setItem('MisFav', JSON.stringify(this.productosFav));
   }
   
