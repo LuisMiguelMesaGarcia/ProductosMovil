@@ -19,6 +19,7 @@ export class Tab2Page {
   constructor() {}
 
   ngOnInit(){
+    //ngview algo
     setInterval(()=>{
       this.list = JSON.parse(localStorage.getItem('MisFav') || '{}');
     },500)
