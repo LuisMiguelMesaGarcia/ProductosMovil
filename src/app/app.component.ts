@@ -3,14 +3,15 @@ import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule} from "@angular/common/http";
 import { SERVICESService } from "../app/services/services.service";
-// import { BrowserModule } from "@angular/platform-browser";
+import { TareasService } from "../app/services/tareas.service";
+
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
   standalone: true,
-  providers:[SERVICESService],
+  providers:[SERVICESService,TareasService ],
   imports: [IonicModule, CommonModule,HttpClientModule],
 })
 export class AppComponent {
